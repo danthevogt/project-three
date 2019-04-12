@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sample Web</title>
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/1140/2.0/1140.min.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css" />
+</head>
+
+<body>
+    <table class="table">
+        <thread>
+            <tr>
+                <th>Song ID</th>
+                <th>Song Name</th>
+                <th>Artist ID</th>
+                <th>Year Released</th>
+            </tr>
+        </thread>
+
+        <tbody>
+            <!--Test holds the data from Student that we passed to index
+            IOW, it holds the records from the table student we grabbed using the select knex-->
+            <% for (var i = 0; i < test.length; i++) {%>
+                <tr>
+                    <td><%= test[i].StudentID %></td>
+                    <td><%= test[i].FirstName %></td>
+                    <td><%= test[i].LastName %></td>
+                    <td><%= test[i].Email %></td>
+                </tr>
+            <% }%>
+                
+        </tbody>
+
+    </table>
+</body>
+</html>
