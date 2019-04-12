@@ -17,6 +17,7 @@
                 <th>Song Name</th>
                 <th>Artist ID</th>
                 <th>Year Released</th>
+                <th></th>
             </tr>
         </thread>
 
@@ -25,11 +26,12 @@
             IOW, it holds the records from the table student we grabbed using the select knex-->
             <% for (var i = 0; i < test.length; i++) {%>
                 <tr>
-                    <td><button id="delete" name="delete">Delete</button><button id="edit" name="edit">Edit</button></td>
+                    <td><button id="delete" name="delete">Delete</button></td>
                     <td><%= test[i].SongID %></td>
                     <td><%= test[i].SongName %></td>
                     <td><%= test[i].ArtistID %></td>
                     <td><%= test[i].YearReleased %></td>
+                    <td><button id="edit" name="edit">Edit</button></td>
                 </tr>
             <% }%>
 
