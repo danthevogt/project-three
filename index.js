@@ -40,10 +40,17 @@ app.get("/", (req, res) => {
     });
 });
 
-app.get("/about", function(req, res) {
-    res.sendFile(path.join(__dirname + "/about.html"));
+app.get("/DeleteStudent", (req, res) => {
+    knex.select('SongID', 'SongName', 'ArtistID', 'YearReleased').from('Songs').orderBy('SongID').del().then(Songs =>{
+        res.render('index', {test: Songs});
+      }).catch(err => {
+        console.log(err);
+        res.status(500).json({err});
+    });
+
 });
 
+})
 app.get("/email", function(req, res) {
     res.sendFile(path.join(__dirname + "/emailpage.html"));
 });

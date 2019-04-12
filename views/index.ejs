@@ -26,7 +26,11 @@
             IOW, it holds the records from the table student we grabbed using the select knex-->
             <% for (var i = 0; i < test.length; i++) {%>
                 <tr>
-                    <td><button id="delete" name="delete">Delete</button></td>
+                    <td>
+                        <form action="/DeleteStudent/<%= test[i].SongID %>" method="delete">
+                            <input type="submit" name="Delete" value="Delete" />
+                        </form>
+                    </td>
                     <td><%= test[i].SongID %></td>
                     <td><%= test[i].SongName %></td>
                     <td><%= test[i].ArtistID %></td>
@@ -40,5 +44,9 @@
         </tbody>
 
     </table>
+
+<button id="create">Add New Record</button>
+<button id="restart">Start Over</button>
+
 </body>
 </html>
