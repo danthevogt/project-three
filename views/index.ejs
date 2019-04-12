@@ -7,9 +7,12 @@
 </head>
 
 <body>
+
+    
     <table class="table">
         <thread>
             <tr>
+                <th></th>
                 <th>Song ID</th>
                 <th>Song Name</th>
                 <th>Artist ID</th>
@@ -22,12 +25,15 @@
             IOW, it holds the records from the table student we grabbed using the select knex-->
             <% for (var i = 0; i < test.length; i++) {%>
                 <tr>
+                    <td><button id="delete" name="delete">Delete</button><button id="edit" name="edit">Edit</button></td>
                     <td><%= test[i].SongID %></td>
                     <td><%= test[i].SongName %></td>
                     <td><%= test[i].ArtistID %></td>
                     <td><%= test[i].YearReleased %></td>
                 </tr>
             <% }%>
+
+            
                 
         </tbody>
 

@@ -1,12 +1,12 @@
 {
-  "name": "wholeproject",
+  "name": "Project3",
   "version": "1.0.0",
-  "description": "This is my first Node Express App",
+  "description": "My first node app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Daniel Vogt",
+  "author": "Daniel Vogt, Bonnie McDougal, London Wheeler, Matt King",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
