@@ -40,6 +40,7 @@ app.get("/", (req, res) => {
     });
 });
 
+//Delete Song
 app.post('/DeleteSong/:id', (req, res) => {
     knex('Songs').where('SongID',req.params.id).del().then(test => {
         res.redirect('/');
@@ -49,11 +50,26 @@ app.post('/DeleteSong/:id', (req, res) => {
     })
 });
 
+//Add a Song
+app.get('/addSong', (req,res) => {
+    res.render('addSong');
+});
+
+app.post('/addSong', (req, res) => {
+    console.log(req.body);
+    //We use req because the res doesn't have the data, the request does
+    knex('Songs').insert(req.body).then(test => {
+        res.redirect('/');
+    });
+});
+
 
 app.get("/email", function(req, res) {
     res.sendFile(path.join(__dirname + "/emailpage.html"));
 });
 
+
+//This is so the server does not die.
 app.listen(port, function() {
     console.log("I am now listening");
 });

@@ -1,52 +1,57 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Sample Web</title>
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/1140/2.0/1140.min.css">-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css" />
-</head>
+    <head>
+        <title>Sample Web</title>
+        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/1140/2.0/1140.min.css">-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css" />
+    </head>
 
-<body>
+    <body>
 
-    
-    <table class="table">
-        <thread>
-            <tr>
-                <th></th>
-                <th>Song ID</th>
-                <th>Song Name</th>
-                <th>Artist ID</th>
-                <th>Year Released</th>
-                <th></th>
-            </tr>
-        </thread>
-
-        <tbody>
-            <!--Test holds the data from Student that we passed to index
-            IOW, it holds the records from the table student we grabbed using the select knex-->
-            <% for (var i = 0; i < test.length; i++) {%>
+        
+        <table class="table">
+            <thread>
                 <tr>
-                    <td>
-                        <form action="/DeleteSong/<%= test[i].SongID %>" method="POST">
-                            <input type="submit" name="Delete" value="Delete" />
-                        </form>
-                    </td>
-                    <td><%= test[i].SongID %></td>
-                    <td><%= test[i].SongName %></td>
-                    <td><%= test[i].ArtistID %></td>
-                    <td><%= test[i].YearReleased %></td>
-                    <td><button id="edit" name="edit">Edit</button></td>
+                    <th></th>
+                    <th>Song ID</th>
+                    <th>Song Name</th>
+                    <th>Artist ID</th>
+                    <th>Year Released</th>
+                    <th></th>
                 </tr>
-            <% }%>
+            </thread>
 
-            
+            <tbody>
+                <!--Test holds the data from Student that we passed to index
+                IOW, it holds the records from the table student we grabbed using the select knex-->
+                <% for (var i = 0; i < test.length; i++) {%>
+                    <tr>
+                        <td>
+                            <form action="/DeleteSong/<%= test[i].SongID %>" method="POST">
+                                <input type="submit" name="Delete" value="Delete" />
+                            </form>
+                        </td>
+                        <td><%= test[i].SongID %></td>
+                        <td><%= test[i].SongName %></td>
+                        <td><%= test[i].ArtistID %></td>
+                        <td><%= test[i].YearReleased %></td>
+                        <td><button id="edit" name="edit">Edit</button></td>
+                    </tr>
+                <% }%>
+
                 
-        </tbody>
+                    
+            </tbody>
 
-    </table>
+        </table>
 
-<button id="create">Add New Record</button>
-<button id="restart">Start Over</button>
+        <div style="padding-left: 15px">
 
-</body>
+        <form action="/addSong">
+            <input type="submit" value="Add New Record" />
+        </form><br>
+        <button id="restart">Start Over</button>
+    </div>
+
+    </body>
 </html>
