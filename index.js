@@ -8,6 +8,9 @@ let app = express();
 //port communication
 let path = require("path");
 
+//we use this variable for our port community
+app.set("port",process.env.PORT || 3000);
+
 //extracting data from the request
 let port = 3000;
 
