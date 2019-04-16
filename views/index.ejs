@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sample Web</title>
+        <title>Music Library</title>
         <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/1140/2.0/1140.min.css">-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css" />
     </head>
 
     <body>
-
-        
+       <!--Table to display the database--> 
         <table class="table">
             <thread>
                 <tr>
+                    <!--Main headers-->
                     <th></th>
                     <th>Song ID</th>
                     <th>Song Name</th>
@@ -24,9 +24,11 @@
             <tbody>
                 <!--Test holds the data from Student that we passed to index
                 IOW, it holds the records from the table student we grabbed using the select knex-->
+               <!--For loop to put data into the table-->
                 <% for (var i = 0; i < test.length; i++) {%>
                     <tr>
                         <td>
+                           <!--Delete song button-->
                             <form action="/DeleteSong/<%= test[i].SongID %>" method="POST">
                                 <input type="submit" name="Delete" value="Delete" />
                             </form>
@@ -36,26 +38,26 @@
                         <td><%= test[i].ArtistID %></td>
                         <td><%= test[i].YearReleased %></td>
                         <td>
-                            <form action="/EditSong/<%= test[i].SongID %>" method="POST">
-                                <input type="submit" name="Edit" value="Edit" />
+                           <!--Edit song button-->
+                            <form action="/EditSong/<%= test[i].SongID %>" method="GET">
+                                <input type="submit" value="Edit" />
                             </form>
                         </td>
                     </tr>
-                <% }%>
-
-                
-                    
+                <% }%>                   
             </tbody>
-
         </table>
 
         <div style="padding-left: 15px">
-
-        <form action="/addSong">
-            <input type="submit" value="Add New Record" />
-        </form><br>
-        <button id="restart">Start Over</button>
-    </div>
-
+            <!--Add song button-->
+            <form action="/addSong">
+                <input type="submit" value="Add New Record" />
+            </form><br>
+            
+            <!--Start over button-->
+            <form action = "/StartOver" method="POST">
+                <input type="submit" value ="Start Over">
+            </form>
+        </div>
     </body>
 </html>

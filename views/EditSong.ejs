@@ -4,20 +4,23 @@
     <title>Update Student</title>
 </head>
 <body>
-    <form action="/EditSong" method="POST">
+    <!--Form to Edit the song-->
+    <form action="/EditSong/<%= song[0].SongID %>" method="POST">
         <label for="SongName">Enter Song Name: </label>
-        <input id="SongName" type="text" name="SongName">
+        <input id="SongName" type="text" name="SongName" value="<%= song[0].SongName %>">
         <br><br>
         <label for="ArtistID">Enter Artist Name: </label>
-        <input id="ArtistID" type="text" name="ArtistID">
+        <input id="ArtistID" type="text" name="ArtistID" value="<%= song[0].ArtistID %>">
         <br><br>
         <label for="YearReleased">Enter Release Year: </label>
-        <input id="YearReleased" type="text" name="YearReleased">
+        <input id="YearReleased" type="text" name="YearReleased" value="<%= song[0].YearReleased %>">
         <br><br>
         <input type="submit" value="Save">
-        <form action="/">
-            <input type="submit" value="Cancel" />
-        </form><br>
+    </form>
+    <!--Form to cancel-->
+    <form action="/">
+        <input type="submit" value="Cancel" />
+    </form><br>
         
 </body>
 </html>

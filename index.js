@@ -1,3 +1,18 @@
+/*Project 3*/
+
+/*
+Daniel Vogt
+London Wheeler
+Anita Wu
+Matt King
+Bonnie McDougal
+*/
+
+/*
+This program displays a database and dynamically allows you to edit, add, delete songs and
+reset the database. Buttons are included in the table to do so.
+*/
+
 //gives access to the express library
 let express = require("express");
 
@@ -34,6 +49,7 @@ app.use(bodyParser.urlencoded({ extended: true}));
 //and helps the browser so it can display it
 app.set("view engine", "ejs");
 
+//This gets the table from sqlite3 and adds it to the page
 app.get("/", (req, res) => {
     knex.select('SongID', 'SongName', 'ArtistID', 'YearReleased').from('Songs').orderBy('SongID').then(Songs =>{
         res.render('index', {test: Songs});
@@ -68,19 +84,37 @@ app.post('/addSong', (req, res) => {
 
 //Edit Song
 app.get('/EditSong/:id', (req,res) => {
-    knex('Songs').where('SongID',req.params.id).then(Songs =>{
-    res.render('EditSong');
+    knex('Songs').where('SongID',req.params.id).then(song => {
+        console.log(song);
+        res.render('EditSong', {song: song});
+});
 });
 
 app.post('/EditSong/:id', (req, res) => {
     console.log(req.body.SongID);
     knex('Songs').where('SongID',req.params.id).update({ SongName: req.body.SongName, ArtistID: req.body.ArtistID,
-        YearReleased: req.body.YearReleased }).then(test => {
+        YearReleased: req.body.YearReleased }).then(() => {
     res.redirect('/');
         });
     });
 
 
+//Start over button
+    app.post("/StartOver",(req,res) => {
+    knex("Songs").del().then(Songs => {
+    knex("Songs").insert([
+        { SongID: 1, SongName: 'Bohemian Rhapsody', ArtistID: 'QUEEN', YearReleased: 1975 },
+        { SongID: 2, SongName: 'Don\'t Stop Believing', ArtistID: 'JOURNEY', YearReleased: 1981 },
+        { SongID: 3, SongName: 'Hey Jude', ArtistID: 'BEATLES', YearReleased: 1968}
+    ]).then(Songs => {
+        res.redirect("/");
+        });
+    }).catch(err =>
+    {
+    console.log(err);
+    res.status(500).json({err});
+    });
+});
 
 //This is so the server does not die.
 app.listen(port, function() {
