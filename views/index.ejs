@@ -35,7 +35,11 @@
                         <td><%= test[i].SongName %></td>
                         <td><%= test[i].ArtistID %></td>
                         <td><%= test[i].YearReleased %></td>
-                        <td><button id="edit" name="edit">Edit</button></td>
+                        <td>
+                            <form action="/EditSong/<%= test[i].SongID %>" method="POST">
+                                <input type="submit" name="Edit" value="Edit" />
+                            </form>
+                        </td>
                     </tr>
                 <% }%>
 

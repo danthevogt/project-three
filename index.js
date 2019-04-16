@@ -66,10 +66,20 @@ app.post('/addSong', (req, res) => {
     });
 });
 
-
-app.get("/email", function(req, res) {
-    res.sendFile(path.join(__dirname + "/emailpage.html"));
+//Edit Song
+app.get('/EditSong/:id', (req,res) => {
+    knex('Songs').where('SongID',req.params.id).then(Songs =>{
+    res.render('EditSong');
 });
+
+app.post('/EditSong/:id', (req, res) => {
+    console.log(req.body.SongID);
+    knex('Songs').where('SongID',req.params.id).update({ SongName: req.body.SongName, ArtistID: req.body.ArtistID,
+        YearReleased: req.body.YearReleased }).then(test => {
+    res.redirect('/');
+        });
+    });
+
 
 
 //This is so the server does not die.
