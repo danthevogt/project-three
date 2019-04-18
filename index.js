@@ -45,6 +45,9 @@ let knex = require("knex")({
 //allows us to use objects and arrays like JSON format
 app.use(bodyParser.urlencoded({ extended: true}));
 
+//allows css
+app.use(express.static(__dirname + '/views'));
+
 //this specifies how our EJS pages are converted to HTML
 //and helps the browser so it can display it
 app.set("view engine", "ejs");

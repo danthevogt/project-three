@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Add Song</title>
-    </head>
-    <body>
-       <!--From to add the song-->
-        <form action="/addSong" method="POST">
-            <label for="SongName">Enter Song Name: </label>
-            <input id="SongName" type="text" name="SongName">
-            <br>
-            <label for="ArtistID">Enter Artist: </label>
-            <input id="ArtistID" type="text" name="ArtistID">
-            <br>
-            <label for="YearReleased">Enter Release Year: </label>
-            <input id="YearReleased" type="number" name="YearReleased">
-            <br>
-            <!--Button to run the action in the form-->
-            <input type="submit" value="Save">
-        </form>    
-    </body>
+
+<head>
+    <title>Add Song</title>
+    <!--Link to CSS Stylesheet-->
+    <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+    <!--From to add the song-->
+    <form class="viswrapper" action="/addSong" method="POST">
+        <label for="SongName">Enter Song Name: </label>
+        <input id="SongName" type="text" name="SongName">
+        <br><br>
+        <label for="ArtistID">Enter Artist: </label>
+        <input id="ArtistID" type="text" name="ArtistID">
+        <br><br>
+        <label for="YearReleased">Enter Release Year: </label>
+        <input id="YearReleased" type="number" name="YearReleased">
+        <br><br>
+        <!--Button to run the action in the form-->
+        <input type="submit" value="Save">
+    </form>
+    <!--Form to cancel-->
+    <br>
+    <form class="wrapper" action="/">
+        <input type="submit" value="Cancel" />
+    </form><br>
+</body>
+
 </html>

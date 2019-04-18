@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Update Student</title>
+    <!--Link to CSS Stylesheet-->
+    <link rel="stylesheet" href="/styles.css" />
 </head>
+
 <body>
     <!--Form to Edit the song-->
-    <form action="/EditSong/<%= song[0].SongID %>" method="POST">
+    <form class="viswrapper" action="/EditSong/<%= song[0].SongID %>" method="POST">
         <label for="SongName">Enter Song Name: </label>
-        <input id="SongName" type="text" name="SongName" value="<%= song[0].SongName %>">
+        <input class="lineup" id="SongName" type="text" name="SongName" value="<%= song[0].SongName %>">
         <br><br>
         <label for="ArtistID">Enter Artist Name: </label>
-        <input id="ArtistID" type="text" name="ArtistID" value="<%= song[0].ArtistID %>">
+        <input class="lineup" id="ArtistID" type="text" name="ArtistID" value="<%= song[0].ArtistID %>">
         <br><br>
         <label for="YearReleased">Enter Release Year: </label>
-        <input id="YearReleased" type="text" name="YearReleased" value="<%= song[0].YearReleased %>">
+        <input class="lineup" id="YearReleased" type="text" name="YearReleased" value="<%= song[0].YearReleased %>">
         <br><br>
         <input type="submit" value="Save">
     </form>
     <!--Form to cancel-->
-    <form action="/">
+    <br>
+    <form class="wrapper" action="/">   
         <input type="submit" value="Cancel" />
     </form><br>
-        
+
 </body>
+
 </html>
